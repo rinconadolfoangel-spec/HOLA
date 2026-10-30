@@ -18,11 +18,14 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: 8.9
+          build-root-directory: FutbolPong
 
       - name: Compilar APK debug
+        working-directory: FutbolPong
         run: gradle assembleDebug --no-daemon
 
       - uses: actions/upload-artifact@v4
         with:
           name: FutbolPong-APK
-          path: app/build/outputs/apk/debug/app-debug.apk
+          path: FutbolPong/app/build/outputs/apk/debug/app-debug.apk
+    
